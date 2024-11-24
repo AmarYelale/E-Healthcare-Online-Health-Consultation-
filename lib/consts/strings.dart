@@ -1,6 +1,6 @@
 class AppStrings {
    static String appname = "Mediapp",
-       bestDocapp = "Best Doctor\n Appointment App".
+       bestDocapp = "Best Doctor\n Appointment App",
        welcomeBack = "Welcome Back!",
        weAreExcited = "We're excited to have you back!",
        signupNow = "Sign up now and start exploring all that our app has to offer.",
@@ -11,12 +11,13 @@ class AppStrings {
        fullname = "Full Name",
        fullnameHint = "Enter your name here...",
        confirmPassword = "Confirm Password",
+       forgetPassword = "Forget Password?",
        login = "Login",
        signup = "Signup",
        alreadyHaveAccount = "Account have an account?",
        dontHaveAccount = "Don't have an account?";
 }
 
-extension on String {
-  set welcomeBack(String welcomeBack) {}
-}
+
+
+ 
