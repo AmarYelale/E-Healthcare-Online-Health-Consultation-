@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatefulWidget {
   final String hint;
   final TextEditingController? textcontroller;
-  const CustomTextField({super.key, required this.hint, this.textcontroller}) ;
+  const CustomTextField({super.key, required this.hint, this.textcontroller, required String? Function(dynamic value) validator}) ;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
