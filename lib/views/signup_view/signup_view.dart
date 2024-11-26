@@ -3,7 +3,10 @@ import 'package:e_healthcare_application/consts/images.dart';
 import 'package:e_healthcare_application/res/components/custom_button.dart';
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:e_healthcare_application/views/login_view/login_view.dart';
+
 
 import '../../consts/strings.dart';
 
@@ -29,8 +32,8 @@ class SignupView extends StatelessWidget {
                   width: 200,
                 ),
                 10.heightBox,
-                AppStyles.bold(title: AppStrings.signup, size: AppSizes.size18),
-                AppStyles.bold(title: AppStrings.signupNow),
+               
+                AppStyles.bold(title: AppStrings.signupNow,size:AppSizes.size18,alignment: TextAlign.center),
 
                 // AppStrings.welcomeBack.text.make(),
                 // AppStrings.weAreExcited.text.make(),
@@ -43,11 +46,31 @@ class SignupView extends StatelessWidget {
                     child: SingleChildScrollView(
               child: Column(
                 children: [
-                   CustomTextField(hint: AppStrings.fullname),
+                   CustomTextField(hint: AppStrings.fullname,
+                    validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                }
+                  return null;
+                  },),
                   10.heightBox,
-                  CustomTextField(hint: AppStrings.email),
+                  CustomTextField(hint: AppStrings.email,
+                   validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                }
+                  return null;
+                  },),
                   10.heightBox,
-                  CustomTextField(hint: AppStrings.password),
+                  CustomTextField(hint: AppStrings.password,
+                  validator: (value) {
+               if (value == null || value.isEmpty) {
+                 return 'Please enter your password';
+                   } else if (value.length < 6) {
+                     return 'Password must be at least 6 characters long';
+                 }
+              return null;
+                  },),
                   20.heightBox,
                   Align(
                     alignment: Alignment.centerRight,
@@ -59,9 +82,15 @@ class SignupView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      AppStyles.normal(title: AppStrings.dontHaveAccount),
+                      AppStyles.normal(title: AppStrings.alreadyHaveAccount),
                       8.widthBox,
-                      AppStyles.bold(title: AppStrings.signup),
+                      GestureDetector(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: AppStyles.bold(title: AppStrings.login),
+                      )
+                     
                        
                     ],
                   )
@@ -75,3 +104,4 @@ class SignupView extends StatelessWidget {
     );
   }
 }
+
