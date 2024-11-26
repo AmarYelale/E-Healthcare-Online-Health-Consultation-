@@ -1,3 +1,4 @@
+import 'package:e_healthcare_application/consts/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -19,20 +20,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor:AppColors.blueColor,
       decoration: InputDecoration(
+        isDense: true,
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: widget.borderColor,
           )
         ),
-        enabledBorder: OutlineInputBorder(
-           borderSide: BorderSide(
-              color: widget.borderColor,
-            )
-
-        ),
-          
-           
+        enabledBorder: OutlineInputBorder( borderSide: BorderSide( 
+           color:widget.borderColor,
+        )), 
+        border:OutlineInputBorder(borderSide:BorderSide(color:widget.borderColor)),
            hintText: widget.hint,
            hintStyle: TextStyle(
             color: widget.textColor

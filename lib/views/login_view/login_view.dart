@@ -1,14 +1,10 @@
 import 'package:e_healthcare_application/consts/consts.dart';
-import 'package:e_healthcare_application/consts/images.dart';
 import 'package:e_healthcare_application/res/components/custom_button.dart';
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
 import 'package:e_healthcare_application/views/home_view/home_view.dart';
 import 'package:e_healthcare_application/views/signup_view/signup_view.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart'; // Make sure this import is present
-import 'package:velocity_x/velocity_x.dart';
 
-import '../../consts/strings.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
