@@ -2,6 +2,9 @@ import 'package:e_healthcare_application/consts/consts.dart';
 import 'package:e_healthcare_application/consts/lists.dart';
 import 'package:e_healthcare_application/consts/strings.dart';
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
+import 'package:e_healthcare_application/views/doctor_profile/doctor_profile.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -99,42 +102,47 @@ class HomeView extends StatelessWidget {
                             itemCount:3, 
                            itemBuilder:(BuildContext context,int index){
 
-                          return Container(
-
-                            clipBehavior: Clip.hardEdge,
-                            decoration: BoxDecoration(
-                              color: AppColors.blueColor,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            margin: const EdgeInsets.only(right: 8),
-              
-                            height: 100,
-                            width: 150,
-                            
-                            child:Column(
-                              children:[
-          
-                              Container(
-                                width:150,
-                                alignment: Alignment.center,
-                                color:AppColors.blueColor,
-                                child:Image.asset(
-                                AppAssets.imgSignup,
-                                width: 100,
-                                fit:BoxFit.cover,
+                          return 
+                          GestureDetector(
+                            onTap: (){
+                              Get.to(()=> const DoctorProfileView());
+                            },
+                            child: Container(
+                              clipBehavior: Clip.hardEdge,
+                              decoration: BoxDecoration(
+                                color: AppColors.blueColor,
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                     
-                              ),
-
+                              margin: const EdgeInsets.only(right: 8),
+                                          
+                              height: 100,
+                              width: 150,
                               
-                   5.heightBox,
-                AppStyles.normal(title: "Doctor name"),
-           5.heightBox,
-                AppStyles.normal(title: "category",color:Colors.black),
-
-                              ], 
+                              child:Column(
+                                children:[
+                                      
+                                Container(
+                                  width:150,
+                                  alignment: Alignment.center,
+                                  color:AppColors.blueColor,
+                                  child:Image.asset(
+                                  AppAssets.imgSignup,
+                                  width: 100,
+                                  fit:BoxFit.cover,
+                                ),
+                                                 
+                                ),
+                            
+                                
+                                               5.heightBox,
+                                            AppStyles.normal(title: "Doctor name"),
+                                       5.heightBox,
+                                            AppStyles.normal(title: "category",color:Colors.black),
+                            
+                                ], 
+                              ),
+                            
                             ),
-
                           );
                         }
                          )

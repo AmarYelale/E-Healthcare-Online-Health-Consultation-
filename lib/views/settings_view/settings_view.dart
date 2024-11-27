@@ -21,14 +21,23 @@ ListTile(
 leading: CircleAvatar(
   child: Image.asset(AppAssets.imgSignup)),
 title:AppStyles.bold(title: "Username"),
-subtitle: AppStyles.normal(title: "Email"),
+subtitle: AppStyles.normal(title: "user@gmail.com"),
 ), // ListTile
 
 const Divider(),
-  20.heightBox,
+  10.heightBox,
   ListView(
-children: List.generate(settingsList.length, (index)=> ListTile(
-  t
+    shrinkWrap: true,
+children: List.generate(
+  settingsList.length, 
+  (index)=> 
+  ListTile(
+    onTap: (){
+
+    },
+    leading: Icon(settingsListIcon[index],color: AppColors.blueColor,),
+  title: AppStyles.bold(
+    title: settingsList[index]),
 )),
   )
 
