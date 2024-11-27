@@ -55,6 +55,9 @@ class AppStrings {
   static const String forgetPassword = "Forget Password?";
   static const String login = "Login";
   static const String signup = "Signup";
+   static const String category = "Category";
+    static const String doctor = "doctor";
+     static const String settings = "settings";
   static const String alreadyHaveAccount = "Already have an account?";
   static const String dontHaveAccount = "Don't have an account?";
 
@@ -69,6 +72,15 @@ class AppStrings {
   static const String liver = "Liver";
   static const String lungs = "Lungs";
   static const String kidney = "Kidney";
+
+  // settings:
+  static const String changePassword = "Change Password";
+   static const String termsConditions = "Terms & Conditions";
+    static const String signout="Signout";
+
+
+
+
 }
 
 
