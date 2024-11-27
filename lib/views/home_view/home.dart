@@ -21,6 +21,7 @@ class _HomeState extends State<Home> {
 int selectedIndex = 0;
 List screenList = [
 const HomeView(),
+Container(),
 const CategoryView(),
 const LoginView(),
 const SettingsView(),
@@ -56,6 +57,7 @@ onTap: (value) {
 },
 items: const [
 BottomNavigationBarItem(icon: Icon(Icons.home),label:"Home"),
+BottomNavigationBarItem(icon: Icon(Icons.book),label:"Appoinments"),
 BottomNavigationBarItem(icon: Icon(Icons.category),label:"Category"),
 BottomNavigationBarItem(icon: Icon(Icons.person),label:"Doctor"),
 BottomNavigationBarItem(icon: Icon(Icons.settings),label:"Settings"),]
