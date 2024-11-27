@@ -3,6 +3,7 @@ import 'package:e_healthcare_application/res/components/custom_button.dart';
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
 import 'package:e_healthcare_application/views/home_view/home_view.dart';
 import 'package:e_healthcare_application/views/signup_view/signup_view.dart';
+import 'package:e_healthcare_application/views/home_view/home.dart';
 import 'package:get/get.dart'; // Make sure this import is present
 
 
@@ -66,7 +67,7 @@ class LoginView extends StatelessWidget {
                   ),
                   20.heightBox,
                   CustomButton(buttonText: AppStrings.login, onTap: () {
-                    Get.to(HomeView());
+                    Get.to(Home());
                   }),
                   20.heightBox,
                   Row(
