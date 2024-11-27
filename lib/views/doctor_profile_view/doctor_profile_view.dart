@@ -45,7 +45,9 @@ padding:const EdgeInsets.all(12) ,
        color: AppColors.whiteColor,
        size:AppSizes.size18),
        AppStyles.bold(
-         title: "Category", color: AppColors.textColor.withOpacity(0.5),size:AppSizes.size18, ),
+         title: "Category", 
+         color: AppColors.textColor.withOpacity(0.5),
+         size:AppSizes.size18, ),
            const Spacer(),
          VxRating(
           selectionColor: AppColors.yellowColor,
@@ -61,7 +63,9 @@ padding:const EdgeInsets.all(12) ,
        ),
      ),
 AppStyles.bold(
-  title: "See all reviews", color: AppColors.whiteColor,size:AppSizes.size18),
+  title: "See all reviews", 
+  color: AppColors.whiteColor,
+  size:AppSizes.size18),
      
       ],
      ), // Row
@@ -77,6 +81,10 @@ AppStyles.bold(
         children: [
           ListTile(
             tileColor:AppStyles.bold(title: "Phone number",color: AppColors.textColor),
+            subtitle: AppStyles.normal(
+              title: "*2334599768",
+              color: AppColors.textColor.withOpacity(0.5),
+              size: AppSizes.size18),
           )
         ],
       ),

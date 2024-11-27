@@ -2,7 +2,7 @@ import 'package:e_healthcare_application/consts/consts.dart';
 import 'package:e_healthcare_application/consts/lists.dart';
 import 'package:e_healthcare_application/consts/strings.dart';
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
-import 'package:e_healthcare_application/views/doctor_profile/doctor_profile.dart';
+import 'package:e_healthcare_application/views/doctor_profile_view/doctor_profile_view.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
@@ -105,7 +105,7 @@ class HomeView extends StatelessWidget {
                           return 
                           GestureDetector(
                             onTap: (){
-                              Get.to(()=> const DoctorProfileView());
+                              Get.to(()=> const DoctorProfileView() );
                             },
                             child: Container(
                               clipBehavior: Clip.hardEdge,
