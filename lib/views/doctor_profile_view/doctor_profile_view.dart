@@ -1,5 +1,6 @@
 import 'package:e_healthcare_application/consts/consts.dart';
 import 'package:e_healthcare_application/consts/colors.dart';
+import 'package:e_healthcare_application/consts/lists.dart';
 import 'package:flutter/material.dart';
 
 import '../../consts/fonts.dart';
@@ -85,7 +86,31 @@ AppStyles.bold(
               title: "*2334599768",
               color: AppColors.textColor.withOpacity(0.5),
               size: AppSizes.size18),
-          )
+              trailing: Container(
+                width: 50,
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: AppColors.yellowColor,
+                ),
+                child: Icon(
+                  Icons.phone,
+                  color: AppColors.whiteColor,
+                ),
+              ),
+          ),
+
+          10.heightBox,
+          AppStyles.bold(title: "About",
+          color: AppColors.textColor,
+          size:AppSizes.size16),
+
+          10.heightBox,
+          AppStyles.normal(title: "This is about section of doctor",
+          color: AppColors.textColor,
+          size:AppSizes.size16),
+
+
         ],
       ),
     )
