@@ -77,11 +77,9 @@ class AppStrings {
   static const String changePassword = "Change Password";
    static const String termsConditions = "Terms & Conditions";
     static const String signout="Signout";
-
-
-
-
 }
+
+
 
 
 
