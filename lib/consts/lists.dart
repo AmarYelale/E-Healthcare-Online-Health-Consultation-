@@ -29,6 +29,7 @@ var settingsList=[
 var settingsListIcon=[
  Icons.lock,
  Icons.note,
- Icons.phone,
  Icons.logout,
+ Icons.phone,
+ 
 ];
