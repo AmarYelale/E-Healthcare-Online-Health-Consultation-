@@ -1,10 +1,4 @@
 import 'package:e_healthcare_application/consts/consts.dart';
-import 'package:e_healthcare_application/consts/colors.dart';
-import 'package:e_healthcare_application/consts/lists.dart';
-import 'package:e_healthcare_application/res/components/custom_button.dart';
-import 'package:flutter/material.dart';
-
-import '../../consts/fonts.dart';
 
 class CategoryDetailsView extends StatelessWidget {
   const CategoryDetailsView({super.key});
@@ -31,7 +25,6 @@ class CategoryDetailsView extends StatelessWidget {
           itemCount: 10,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-        
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
                 color: AppColors.bgDarkColor,
@@ -43,7 +36,7 @@ class CategoryDetailsView extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                   // width: 150,
+                    // width: 150,
                     alignment: Alignment.center,
                     color: AppColors.blueColor,
                     child: Image.asset(
@@ -54,14 +47,14 @@ class CategoryDetailsView extends StatelessWidget {
                   ),
                   5.heightBox,
                   AppStyles.normal(title: "Doctor name", color: Colors.black),
-                   VxRating(
-                          selectionColor: AppColors.yellowColor,
-                          onRatingUpdate: (value) {},
-                          maxRating: 5,
-                          count: 5,
-                          value: 4,
-                          stepInt: true,
-                        )
+                  VxRating(
+                    selectionColor: AppColors.yellowColor,
+                    onRatingUpdate: (value) {},
+                    maxRating: 5,
+                    count: 5,
+                    value: 4,
+                    stepInt: true,
+                  )
                   //5.heightBox,
                   //AppStyles.normal(title: "category", color: Colors.white),
                 ],

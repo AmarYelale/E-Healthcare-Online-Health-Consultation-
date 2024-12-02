@@ -1,6 +1,5 @@
 import 'package:e_healthcare_application/consts/consts.dart';
 import 'package:e_healthcare_application/consts/lists.dart';
-import 'package:e_healthcare_application/consts/strings.dart';
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
 import 'package:e_healthcare_application/views/doctor_profile_view/doctor_profile_view.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -67,7 +66,8 @@ class HomeView extends StatelessWidget {
                                     child: Container(
                                         decoration: BoxDecoration(
                                           color: AppColors.blueColor,
-                                          borderRadius: BorderRadius.circular(12),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
                                         ),
                                         padding: EdgeInsets.all(12),
                                         margin: EdgeInsets.only(right: 8),
@@ -127,12 +127,13 @@ class HomeView extends StatelessWidget {
                                             ),
                                           ),
                                           5.heightBox,
-                                          
-                                          AppStyles.normal(title: "Doctor name", color: Colors.black),
+                                          AppStyles.normal(
+                                              title: "Doctor name",
+                                              color: Colors.black),
                                           5.heightBox,
                                           AppStyles.normal(
                                               title: "category",
-                                              color:  Colors.black),
+                                              color: Colors.black),
                                         ],
                                       ),
                                     ),
@@ -155,7 +156,8 @@ class HomeView extends StatelessWidget {
                               (index) => Container(
                                     decoration: BoxDecoration(
                                         color: AppColors.blueColor,
-                                        borderRadius: BorderRadius.circular(12)),
+                                        borderRadius:
+                                            BorderRadius.circular(12)),
                                     padding: const EdgeInsets.all(12),
                                     child: Column(
                                       children: [

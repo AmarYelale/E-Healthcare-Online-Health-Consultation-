@@ -1,12 +1,7 @@
 import 'package:e_healthcare_application/consts/consts.dart';
-import 'package:e_healthcare_application/consts/colors.dart';
-import 'package:e_healthcare_application/consts/lists.dart';
 import 'package:e_healthcare_application/res/components/custom_button.dart';
 import 'package:e_healthcare_application/views/appoinment_view/appoinment_view.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../consts/fonts.dart';
 
 class DoctorProfileView extends StatelessWidget {
   const DoctorProfileView({super.key});
@@ -27,9 +22,7 @@ class DoctorProfileView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: SingleChildScrollView(
-          child: Column(
-            
-            children: [
+          child: Column(children: [
             Container(
               padding: const EdgeInsets.all(12),
               height: 100,
@@ -54,10 +47,10 @@ class DoctorProfileView extends StatelessWidget {
                             title: "Doctor Name",
                             color: AppColors.textColor,
                             size: AppSizes.size16),
-                          AppStyles.bold(
-                            title: "Catagory",
-                            color: AppColors.textColor.withOpacity(0.5),
-                             size: AppSizes.size14,
+                        AppStyles.bold(
+                          title: "Catagory",
+                          color: AppColors.textColor.withOpacity(0.5),
+                          size: AppSizes.size14,
                         ),
                         const Spacer(),
                         VxRating(
@@ -79,11 +72,10 @@ class DoctorProfileView extends StatelessWidget {
               ), // Row
             ),
             10.widthBox,
-             Padding(
-              padding: const EdgeInsets.fromLTRB(1,12,1,1),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(1, 12, 1, 1),
               child: Container(
-              padding: const EdgeInsets.all(12),
-
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   color: AppColors.whiteColor,
@@ -122,7 +114,6 @@ class DoctorProfileView extends StatelessWidget {
                         title: "This is about section of doctor",
                         color: AppColors.textColor.withOpacity(.5),
                         size: AppSizes.size12),
-          
                     10.heightBox,
                     AppStyles.bold(
                         title: "Address",
@@ -133,8 +124,7 @@ class DoctorProfileView extends StatelessWidget {
                         title: "Address of the doctor",
                         color: AppColors.textColor.withOpacity(.5),
                         size: AppSizes.size12),
-                    
-                   10.heightBox,
+                    10.heightBox,
                     AppStyles.bold(
                         title: "Working time",
                         color: AppColors.textColor,
@@ -144,8 +134,7 @@ class DoctorProfileView extends StatelessWidget {
                         title: "9:00 AM to 12:PM",
                         color: AppColors.textColor.withOpacity(0.5),
                         size: AppSizes.size12),
-          
-                     10.heightBox,
+                    10.heightBox,
                     AppStyles.bold(
                         title: "Services",
                         color: AppColors.textColor,
@@ -155,24 +144,21 @@ class DoctorProfileView extends StatelessWidget {
                         title: "This is the service section of a doctor",
                         color: AppColors.textColor.withOpacity(0.5),
                         size: AppSizes.size12),
-          
-          
-                    
                   ],
                 ),
               ),
             )
-            
           ]),
-          
         ),
-      ), bottomNavigationBar: Padding(
+      ),
+      bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(10),
         child: CustomButton(
-          buttonText: "Book an appointment", onTap: () {
-            Get.to(() => AppoinmentView());
-          }),
-      ),// Column
+            buttonText: "Book an appointment",
+            onTap: () {
+              Get.to(() => AppoinmentView());
+            }),
+      ), // Column
     ); // Scaffold
   }
 }
