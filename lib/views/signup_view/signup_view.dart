@@ -72,7 +72,7 @@ class SignupView extends StatelessWidget {
                     child: AppStyles.normal(title: AppStrings.forgetPassword),
                   ),
                   20.heightBox,
-                  CustomButton(buttonText: AppStrings.login, onTap: () {}),
+                  CustomButton(buttonText: AppStrings.signup, onTap: () {}),
                   20.heightBox,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

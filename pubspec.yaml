@@ -30,6 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  firebase_core: ^3.8.0  
+  firebase_auth: ^5.3.3 # Add this line
+
   #velocity_x: ^latest_version
 
 
@@ -38,12 +41,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   velocity_x: ^4.2.1
   get:  ^4.6.5
+  cloud_firestore: ^5.5.0
   
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+    
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
