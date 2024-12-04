@@ -1,7 +1,13 @@
+import 'dart:math';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_healthcare_application/consts/consts.dart';
 import 'package:e_healthcare_application/consts/lists.dart';
+import 'package:e_healthcare_application/controllers/home_controller.dart';
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
+import 'package:e_healthcare_application/views/category_details_view/category_details_view.dart';
 import 'package:e_healthcare_application/views/doctor_profile_view/doctor_profile_view.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
@@ -10,6 +16,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(HomeController());
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -62,7 +70,10 @@ class HomeView extends StatelessWidget {
                                 itemCount: 6,
                                 itemBuilder: (BuildContext context, int index) {
                                   return GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Get.to(() => CategoryDetailsView(
+                                          catName: iconsTitleList[index]));
+                                    },
                                     child: Container(
                                         decoration: BoxDecoration(
                                           color: AppColors.blueColor,
@@ -94,51 +105,72 @@ class HomeView extends StatelessWidget {
                               color: AppColors.blueColor,
                               size: AppSizes.size18),
                         ),
-                        SizedBox(
-                            height: 200,
-                            child: ListView.builder(
-                                physics: BouncingScrollPhysics(),
-                                scrollDirection: Axis.horizontal,
-                                itemCount: 3,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      Get.to(() => const DoctorProfileView());
-                                    },
-                                    child: Container(
-                                      clipBehavior: Clip.hardEdge,
-                                      decoration: BoxDecoration(
-                                        color: AppColors.bgDarkColor,
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      margin: const EdgeInsets.only(right: 8),
-                                      height: 100,
-                                      width: 150,
-                                      child: Column(
-                                        children: [
-                                          Container(
+                        10.heightBox,
+                        FutureBuilder<QuerySnapshot>(
+                          future: controller.getDoctorList(),
+                          builder: (BuildContext context,
+                              AsyncSnapshot<QuerySnapshot> snapshot) {
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            } else {
+                              var data = snapshot.data?.docs;
+
+                              return SizedBox(
+                                  height: 200,
+                                  child: ListView.builder(
+                                      physics: BouncingScrollPhysics(),
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: data?.length ?? 0,
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        return GestureDetector(
+                                          onTap: () {
+                                            Get.to(() => DoctorProfileView(
+                                                doc: data[index]));
+                                          },
+                                          child: Container(
+                                            clipBehavior: Clip.hardEdge,
+                                            decoration: BoxDecoration(
+                                              color: AppColors.bgDarkColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                            ),
+                                            margin:
+                                                const EdgeInsets.only(right: 8),
+                                            height: 100,
                                             width: 150,
-                                            alignment: Alignment.center,
-                                            color: AppColors.blueColor,
-                                            child: Image.asset(
-                                              AppAssets.imgSignup,
-                                              width: 100,
-                                              fit: BoxFit.cover,
+                                            child: Column(
+                                              children: [
+                                                Container(
+                                                  width: 150,
+                                                  alignment: Alignment.center,
+                                                  color: AppColors.blueColor,
+                                                  child: Image.asset(
+                                                    AppAssets.imgSignup,
+                                                    width: 100,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                                5.heightBox,
+                                                AppStyles.normal(
+                                                    title: data![index]
+                                                        ['docName'],
+                                                    color: Colors.black),
+                                                5.heightBox,
+                                                AppStyles.normal(
+                                                    title: data[index]
+                                                        ['docCategory'],
+                                                    color: Colors.black),
+                                              ],
                                             ),
                                           ),
-                                          5.heightBox,
-                                          AppStyles.normal(
-                                              title: "Doctor name",
-                                              color: Colors.black),
-                                          5.heightBox,
-                                          AppStyles.normal(
-                                              title: "category",
-                                              color: Colors.black),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                })),
+                                        );
+                                      }));
+                            }
+                          },
+                        ),
                         6.heightBox,
                         GestureDetector(
                           onTap: () {},

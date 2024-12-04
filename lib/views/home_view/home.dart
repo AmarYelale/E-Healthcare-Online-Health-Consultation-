@@ -3,6 +3,7 @@ import 'package:e_healthcare_application/views/category_view/category_view.dart'
 import 'package:e_healthcare_application/views/home_view/home_view.dart';
 import 'package:e_healthcare_application/views/login_view/login_view.dart';
 import 'package:e_healthcare_application/views/settings_view/settings_view.dart';
+import 'package:e_healthcare_application/views/appoinment_view/appoinment_view.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,6 +17,7 @@ class _HomeState extends State<Home> {
   List screenList = [
     const HomeView(),
     Container(),
+    const AppoinmentView(),
     const CategoryView(),
     const LoginView(),
     const SettingsView(),
@@ -47,7 +49,7 @@ class _HomeState extends State<Home> {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.book), label: "Appoinments"),
+                icon: Icon(Icons.book), label: "Appointments"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.category), label: "Category"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Doctor"),
