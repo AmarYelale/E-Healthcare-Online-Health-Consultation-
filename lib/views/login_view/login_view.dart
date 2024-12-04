@@ -1,15 +1,31 @@
 import 'package:e_healthcare_application/consts/consts.dart';
+import 'package:e_healthcare_application/controllers/auth_controller.dart';
 import 'package:e_healthcare_application/res/components/custom_button.dart';
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
 import 'package:e_healthcare_application/views/signup_view/signup_view.dart';
 import 'package:e_healthcare_application/views/home_view/home.dart';
 import 'package:get/get.dart'; // Make sure this import is present
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
   @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  var isLoading = false;
+
+  // @override
+  // void initState() {
+
+  //   AuthController().isUserAlreadyLoggedIn();
+  //   super.initState();
+  // }
+
+  @override
   Widget build(BuildContext context) {
+    var controller = Get.put(AuthController());
     return Scaffold(
       body: Container(
         margin: EdgeInsets.only(top: 40),
@@ -42,6 +58,7 @@ class LoginView extends StatelessWidget {
                 children: [
                   CustomTextField(
                     hint: AppStrings.email,
+                    textcontroller: controller.emailController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your email';
@@ -52,6 +69,7 @@ class LoginView extends StatelessWidget {
                   10.heightBox,
                   CustomTextField(
                     hint: AppStrings.password,
+                    textcontroller: controller.passwordController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your password';
@@ -69,8 +87,11 @@ class LoginView extends StatelessWidget {
                   20.heightBox,
                   CustomButton(
                       buttonText: AppStrings.login,
-                      onTap: () {
-                        Get.to(Home());
+                      onTap: () async {
+                        await controller.loginUser();
+                        if (controller.userCredential != null) {
+                          Get.to(() => const Home());
+                        }
                       }),
                   20.heightBox,
                   Row(
