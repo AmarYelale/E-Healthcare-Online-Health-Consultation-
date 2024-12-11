@@ -163,7 +163,7 @@ class DoctorProfileView extends StatelessWidget {
             buttonText: "Book an appointment",
             onTap: () {
               Get.to(() => BookAppointmentView(
-                    docId: doc['docId'],
+                    docId: doc['docid'],
                     docName: doc['docName'],
                   ));
             }),

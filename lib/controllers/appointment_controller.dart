@@ -14,7 +14,7 @@ class AppointmentController extends GetxController {
 
   var docName = ''.obs;
 
-  bookAppointment(String docId, String docName,context) async {
+  bookAppointment(String docId, String docName, context) async {
     isLoading(true);
 
     var store = FirebaseFirestore.instance.collection('appointments').doc();
@@ -26,14 +26,24 @@ class AppointmentController extends GetxController {
       'appName': appNameController.text,
       'appMsg': appMessageController.text,
       'appWith': docId,
-      'appWithName':docName,
+      'appWithName': docName,
     });
     isLoading(false);
     VxToast.show(context, msg: "Appointment is booked successfully!");
     Get.back();
   }
 
-  Future<QuerySnapshot<Map<String, dynamic>>> getAppointments() {
-    return FirebaseFirestore.instance.collection('appointment').get();
+  Future<QuerySnapshot<Map<String, dynamic>>> getAppointments(bool isDoctor) {
+    if (isDoctor) {
+      return FirebaseFirestore.instance
+          .collection('appointments')
+          .where('appBy', isEqualTo: FirebaseAuth.instance.currentUser?.uid)
+          .get();
+    } else {
+      return FirebaseFirestore.instance
+          .collection('appointments')
+          .where('appWith', isEqualTo: FirebaseAuth.instance.currentUser?.uid)
+          .get();
+    }
   }
 }

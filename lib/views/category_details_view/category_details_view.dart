@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_healthcare_application/consts/consts.dart';
 import 'package:e_healthcare_application/views/doctor_profile_view/doctor_profile_view.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class CategoryDetailsView extends StatelessWidget {
   final String catName;

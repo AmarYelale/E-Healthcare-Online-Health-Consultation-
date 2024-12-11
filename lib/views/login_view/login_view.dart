@@ -2,6 +2,7 @@ import 'package:e_healthcare_application/consts/consts.dart';
 import 'package:e_healthcare_application/controllers/auth_controller.dart';
 import 'package:e_healthcare_application/res/components/custom_button.dart';
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
+import 'package:e_healthcare_application/views/appoinment_view/appoinment_view.dart';
 import 'package:e_healthcare_application/views/signup_view/signup_view.dart';
 import 'package:e_healthcare_application/views/home_view/home.dart';
 import 'package:get/get.dart'; // Make sure this import is present
@@ -16,13 +17,7 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   var isLoading = false;
 
-  // @override
-  // void initState() {
-
-  //   AuthController().isUserAlreadyLoggedIn();
-  //   super.initState();
-  // }
-
+  var isDoctor = false;
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(AuthController());
@@ -79,6 +74,15 @@ class _LoginViewState extends State<LoginView> {
                       return null;
                     },
                   ),
+                  10.heightBox,
+                  SwitchListTile(
+                      value: isDoctor,
+                      onChanged: (newValue) {
+                        setState(() {
+                          isDoctor = newValue;
+                        });
+                      },
+                      title: "Sign is as a doctor".text.make()),
                   20.heightBox,
                   Align(
                     alignment: Alignment.centerRight,
@@ -90,7 +94,11 @@ class _LoginViewState extends State<LoginView> {
                       onTap: () async {
                         await controller.loginUser();
                         if (controller.userCredential != null) {
-                          Get.to(() => const Home());
+                          if (isDoctor) {
+                            Get.to(() => AppoinmentView());
+                          } else {
+                            Get.to(() => const Home());
+                          }
                         }
                       }),
                   20.heightBox,

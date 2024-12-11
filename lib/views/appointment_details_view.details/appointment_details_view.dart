@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_healthcare_application/consts/consts.dart';
+// ignore: unused_import
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
-import 'package:flutter/widgets.dart';
 
 class AppointmentDetailsView extends StatelessWidget {
   final DocumentSnapshot doc;

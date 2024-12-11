@@ -19,8 +19,9 @@ class _HomeState extends State<Home> {
     Container(),
     const AppoinmentView(),
     const CategoryView(),
-    const LoginView(),
+    //const LoginView(),
     const SettingsView(),
+
     Container(color: Colors.red),
     Container(
       color: Colors.green,
@@ -52,7 +53,7 @@ class _HomeState extends State<Home> {
                 icon: Icon(Icons.book), label: "Appointments"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.category), label: "Category"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Doctor"),
+          //  BottomNavigationBarItem(icon: Icon(Icons.person), label: "Doctor"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings), label: "Settings"),
           ]),

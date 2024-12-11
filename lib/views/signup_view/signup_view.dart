@@ -5,8 +5,14 @@ import 'package:e_healthcare_application/res/components/custom_textfield.dart';
 import 'package:e_healthcare_application/views/home_view/home.dart';
 import 'package:get/get.dart';
 
-class SignupView extends StatelessWidget {
+class SignupView extends StatefulWidget {
   const SignupView({super.key});
+  @override
+  State<StatefulWidget> createState() => _SignupViewState();
+}
+
+class _SignupViewState extends State<SignupView> {
+  var isDoctor = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +54,7 @@ class SignupView extends StatelessWidget {
                     textcontroller: controller.fullnameController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
+                        return 'Please enter your fullname';
                       }
                       return null;
                     },
@@ -77,6 +83,86 @@ class SignupView extends StatelessWidget {
                       return null;
                     },
                   ),
+                  10.heightBox,
+                  SwitchListTile(
+                      title: "Sign up as a doctor".text.make(),
+                      value: isDoctor,
+                      onChanged: (newValue) {
+                        setState(() {
+                          isDoctor = newValue;
+                        });
+                      }),
+                  Visibility(
+                    visible: isDoctor,
+                    child: Column(children: [
+                      CustomTextField(
+                        hint: "About",
+                        textcontroller: controller.aboutController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your About';
+                          }
+                          return null;
+                        },
+                      ),
+                      10.heightBox,
+                      CustomTextField(
+                        hint: "Category",
+                        textcontroller: controller.categoryController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your category';
+                          }
+                          return null;
+                        },
+                      ),
+                      10.heightBox,
+                      CustomTextField(
+                        hint: "Service",
+                        textcontroller: controller.servicesController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your services';
+                          }
+                          return null;
+                        },
+                      ),
+                      10.heightBox,
+                      CustomTextField(
+                        hint: "Address",
+                        textcontroller: controller.addressController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your Address';
+                          }
+                          return null;
+                        },
+                      ),
+                      10.heightBox,
+                      CustomTextField(
+                        hint: "Phone Number",
+                        textcontroller: controller.phoneController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your phone number';
+                          }
+                          return null;
+                        },
+                      ),
+                      10.heightBox,
+                      CustomTextField(
+                        hint: "Timing",
+                        textcontroller: controller.timingController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your timing';
+                          }
+                          return null;
+                        },
+                      ),
+                      10.heightBox,
+                    ]),
+                  ),
                   20.heightBox,
                   Align(
                     alignment: Alignment.centerRight,
@@ -86,9 +172,9 @@ class SignupView extends StatelessWidget {
                   CustomButton(
                       buttonText: AppStrings.signup,
                       onTap: () async {
-                        await controller.signupUser();
+                        await controller.signupUser(isDoctor);
                         if (controller.userCredential != null) {
-                          Get.offAll(()=> const Home());
+                          Get.offAll(() => const Home());
                         }
                       }),
                   20.heightBox,

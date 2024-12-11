@@ -1,4 +1,4 @@
-import 'dart:math';
+//import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_healthcare_application/consts/consts.dart';
@@ -7,9 +7,8 @@ import 'package:e_healthcare_application/controllers/home_controller.dart';
 import 'package:e_healthcare_application/res/components/custom_textfield.dart';
 import 'package:e_healthcare_application/views/category_details_view/category_details_view.dart';
 import 'package:e_healthcare_application/views/doctor_profile_view/doctor_profile_view.dart';
+import 'package:e_healthcare_application/views/search_view/search_view.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -19,7 +18,7 @@ class HomeView extends StatelessWidget {
     var controller = Get.put(HomeController());
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset:false,
       appBar: AppBar(
         backgroundColor: AppColors.blueColor,
         elevation: 0.0,
@@ -38,9 +37,11 @@ class HomeView extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomTextField(
+                        textcontroller: controller.searchQueryController,
                         hint: AppStrings.search,
                         borderColor: AppColors.whiteColor,
                         textColor: AppColors.whiteColor,
+                        inputColor: AppColors.whiteColor,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter a search term';
@@ -51,7 +52,12 @@ class HomeView extends StatelessWidget {
                     ),
                     10.widthBox,
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => SearchView(
+                                searchQuery:
+                                    controller.searchQueryController.text,
+                              ));
+                        },
                         icon: Icon(Icons.search, color: AppColors.whiteColor))
                   ],
                 )),
